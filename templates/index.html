@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>XLSX-TO-TXT</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/font.css') }}">
+<link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='images/xlsx.ico') }}">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+<div id="container">
+<H1>XLSX TO TXT</H1>
+<div id="xlsx-to-txt">
+<form action="{{ url_for('upload_files') }}" method="post" enctype="multipart/form-data">
+<input type="file" name="files[]" id="file-input" multiple accept=".xlsx, .xls" style="display: none;">
+<label for="file-input" id="custom-file-upload">
+<img id="xlsx" src="{{ url_for('static', filename='images/xlsx.png') }}" alt="Subir archivos">
+</label>
+<button type="submit" id="convert" disabled>Convert XLSX to TXT</button>
+</form>
+<div id="upload-info"></div>
+<div class="contenedor-loader">Loading
+<div class="loader1"></div>
+<div class="loader2"></div>
+<div class="loader3"></div>
+<div class="loader4"></div>
+</div>
+</div>
+<script>
+const uploadUrl = "{{ url_for('upload_files') }}";
+</script>
+<script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</div>
+</body>
+</html>
